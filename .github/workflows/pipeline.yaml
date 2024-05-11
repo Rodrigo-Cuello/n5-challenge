@@ -20,6 +20,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.ARN_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
+          output-credentials: true
 
       - name: Sts GetCallerIdentity
         run: |
