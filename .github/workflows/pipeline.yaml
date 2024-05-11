@@ -18,6 +18,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.ARN_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
+          mask-aws-account-id: 'false'
 
       - name: Sts GetCallerIdentity
         run: |
