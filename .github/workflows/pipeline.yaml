@@ -15,6 +15,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Manejo de variables de entorno
+        run: |
+          if [[ "${{ github.head_ref }}" == "develop" ]]; then
+            echo "ENVIRONMENT_NAME=Develop" >> $GITHUB_ENV
+          elif [[ "${{ github.head_ref }}" == "testing" ]]; then
+            echo "ENVIRONMENT_NAME=Testing" >> $GITHUB_ENV
+          fi        
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -33,4 +41,4 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG        
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG     
