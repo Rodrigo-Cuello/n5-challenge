@@ -50,7 +50,7 @@ jobs:
         with:
           task-definition: n5-task-definition-revision4.json
           container-name: n5        
-          image: $IMAGE_TAG
+          image: n5
           
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
