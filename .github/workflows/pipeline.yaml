@@ -48,7 +48,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: n5-task-definition.json
+          task-definition: n5-task-definition-revision4.json
           container-name: n5        
           image: $GITHUB_OUTPUT
           
