@@ -50,7 +50,7 @@ jobs:
         with:
           task-definition: n5-task-definition-revision4.json
           container-name: n5        
-          image: n5
+          image: ${{ secrets.IMAGE_BUILD }}
           
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
