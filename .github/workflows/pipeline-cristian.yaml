@@ -3,7 +3,7 @@ name: Pipeline to deploy ECR and ECS
 on:
   push:
     branches:
-      - crsitian
+      - cristian
 
 jobs:
   build:
