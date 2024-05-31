@@ -1,4 +1,4 @@
-name: Test pipeline to AWS ECS
+name: Pipeline to deploy ECR and ECS
 
 on:
   push:
@@ -6,12 +6,13 @@ on:
       - agustin
 
 jobs:
-  build:
+  builds:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: "Configure AWS Credentials" Action for GitHub Actions
+        uses: actions/checkout@v3
+
+      - name: AWS Credential
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
